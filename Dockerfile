@@ -3,12 +3,15 @@
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 # Ubuntu release versions 22.04, and 20.04 are supported
-ARG DISTRIB_RELEASE=22.04
-FROM ubuntu:${DISTRIB_RELEASE}
+ARG BASE_IMAGE=ubuntu:22.04
+FROM ${BASE_IMAGE}
 
 LABEL maintainer "https://github.com/ehfd,https://github.com/danisla"
 
-ARG DISTRIB_RELEASE
+ARG SELKIES_VERSION=1.5.2
+ARG NVRTC_VERSION=11.4.152
+ARG PASSWD=user
+
 # Use noninteractive mode to skip confirmation when installing packages
 ARG DEBIAN_FRONTEND=noninteractive
 # System defaults that should not be changed
@@ -203,7 +206,7 @@ ENV REFRESH 60
 ENV DPI 96
 ENV CDEPTH 24
 ENV VGL_DISPLAY egl
-ENV PASSWD mypasswd
+ENV PASSWD ${PASSWD}
 ENV NOVNC_ENABLE false
 ENV WEBRTC_ENCODER nvh264enc
 ENV WEBRTC_ENABLE_RESIZE false
@@ -477,10 +480,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     if [ "$(grep VERSION_ID= /etc/os-release | cut -d= -f2 | tr -d '\"')" \> "20.04" ]; then apt-get install --no-install-recommends -y xcvt; else apt-get install --no-install-recommends -y mesa-utils-extra; fi && \
     rm -rf /var/lib/apt/lists/* && \
     # Automatically fetch the latest selkies-gstreamer version and install the components
-    SELKIES_VERSION="1.5.2" && \
     cd /opt && curl -fsSL "https://github.com/selkies-project/selkies-gstreamer/releases/download/v${SELKIES_VERSION}/selkies-gstreamer-v${SELKIES_VERSION}-ubuntu$(grep VERSION_ID= /etc/os-release | cut -d= -f2 | tr -d '\"').tgz" | tar -zxf - && \
     # Extract NVRTC dependency, https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvrtc/LICENSE.txt
-    NVRTC_VERSION="11.4.152" && \
     NVRTC_ARCH="$(dpkg --print-architecture | sed -e 's/arm64/sbsa/' -e 's/ppc64el/ppc64le/' -e 's/i.*86/x86/' -e 's/amd64/x86_64/' -e 's/unknown/x86_64/')" && \
     cd /tmp && curl -fsSL "https://developer.download.nvidia.com/compute/cuda/redist/cuda_nvrtc/linux-${NVRTC_ARCH}/cuda_nvrtc-linux-${NVRTC_ARCH}-${NVRTC_VERSION}-archive.tar.xz" | tar -xJf - -C /tmp && mv -f cuda_nvrtc* cuda_nvrtc && cd cuda_nvrtc/lib && chmod 755 libnvrtc* && mv -f libnvrtc* /opt/gstreamer/lib/$(dpkg --print-architecture | sed -e 's/arm64/aarch64-linux-gnu/' -e 's/armhf/arm-linux-gnueabihf/' -e 's/riscv64/riscv64-linux-gnu/' -e 's/ppc64el/powerpc64le-linux-gnu/' -e 's/s390x/s390x-linux-gnu/' -e 's/i.*86/i386-linux-gnu/' -e 's/amd64/x86_64-linux-gnu/' -e 's/unknown/x86_64-linux-gnu/')/ && cd /tmp && rm -rf /tmp/cuda_nvrtc && \
     cd /tmp && curl -fsSL -O "https://github.com/selkies-project/selkies-gstreamer/releases/download/v${SELKIES_VERSION}/selkies_gstreamer-${SELKIES_VERSION}-py3-none-any.whl" && pip3 install "selkies_gstreamer-${SELKIES_VERSION}-py3-none-any.whl" && rm -f "selkies_gstreamer-${SELKIES_VERSION}-py3-none-any.whl" && \
