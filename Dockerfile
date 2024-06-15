@@ -21,16 +21,16 @@ ENV PULSE_SERVER unix:/run/pulse/native
 
 # Install fundamental packages
 RUN apt-get clean && apt-get update && apt-get upgrade -y && apt-get install --no-install-recommends -y \
-        apt-transport-https \
-        apt-utils \
-        build-essential \
-        ca-certificates \
-        curl \
-        gnupg \
-        locales \
-        make \
-        software-properties-common \
-        wget && \
+    apt-transport-https \
+    apt-utils \
+    build-essential \
+    ca-certificates \
+    curl \
+    gnupg \
+    locales \
+    make \
+    software-properties-common \
+    wget && \
     rm -rf /var/lib/apt/lists/* && \
     locale-gen en_US.UTF-8
 # Set locales
@@ -41,130 +41,130 @@ ENV LC_ALL en_US.UTF-8
 # Install operating system libraries or packages
 RUN dpkg --add-architecture i386 && \
     apt-get update && apt-get install --no-install-recommends -y \
-        alsa-base \
-        alsa-utils \
-        cups-browsed \
-        cups-bsd \
-        cups-common \
-        cups-filters \
-        printer-driver-cups-pdf \
-        file \
-        bzip2 \
-        gzip \
-        xz-utils \
-        unar \
-        rar \
-        unrar \
-        zip \
-        unzip \
-        zstd \
-        gcc \
-        git \
-        jq \
-        python3 \
-        python3-cups \
-        python3-numpy \
-        ssl-cert \
-        nano \
-        vim \
-        htop \
-        fakeroot \
-        fonts-dejavu \
-        fonts-freefont-ttf \
-        fonts-hack \
-        fonts-liberation \
-        fonts-noto \
-        fonts-noto-cjk \
-        fonts-noto-cjk-extra \
-        fonts-noto-color-emoji \
-        fonts-noto-extra \
-        fonts-noto-ui-extra \
-        fonts-noto-hinted \
-        fonts-noto-mono \
-        fonts-noto-unhinted \
-        fonts-opensymbol \
-        fonts-symbola \
-        fonts-ubuntu \
-        lame \
-        less \
-        libavcodec-extra \
-        libpulse0 \
-        pulseaudio \
-        supervisor \
-        net-tools \
-        packagekit-tools \
-        pkg-config \
-        mesa-utils \
-        va-driver-all \
-        va-driver-all:i386 \
-        i965-va-driver-shaders \
-        i965-va-driver-shaders:i386 \
-        intel-media-va-driver-non-free \
-        intel-media-va-driver-non-free:i386 \
-        libva2 \
-        libva2:i386 \
-        vainfo \
-        vdpau-driver-all \
-        vdpau-driver-all:i386 \
-        vdpauinfo \
-        mesa-vulkan-drivers \
-        mesa-vulkan-drivers:i386 \
-        libvulkan-dev \
-        libvulkan-dev:i386 \
-        vulkan-tools \
-        ocl-icd-libopencl1 \
-        clinfo \
-        dbus-user-session \
-        dbus-x11 \
-        libdbus-c++-1-0v5 \
-        xkb-data \
-        xauth \
-        xbitmaps \
-        xdg-user-dirs \
-        xdg-utils \
-        xfonts-base \
-        xfonts-scalable \
-        xinit \
-        xsettingsd \
-        libxrandr-dev \
-        x11-xkb-utils \
-        x11-xserver-utils \
-        x11-utils \
-        x11-apps \
-        xserver-xorg-input-all \
-        xserver-xorg-input-wacom \
-        xserver-xorg-video-all \
-        xserver-xorg-video-intel \
-        xserver-xorg-video-qxl \
-        # Install OpenGL libraries
-        libxau6 \
-        libxau6:i386 \
-        libxdmcp6 \
-        libxdmcp6:i386 \
-        libxcb1 \
-        libxcb1:i386 \
-        libxext6 \
-        libxext6:i386 \
-        libx11-6 \
-        libx11-6:i386 \
-        libxv1 \
-        libxv1:i386 \
-        libxtst6 \
-        libxtst6:i386 \
-        libglvnd0 \
-        libglvnd0:i386 \
-        libgl1 \
-        libgl1:i386 \
-        libglx0 \
-        libglx0:i386 \
-        libegl1 \
-        libegl1:i386 \
-        libgles2 \
-        libgles2:i386 \
-        libglu1 \
-        libglu1:i386 \
-        libsm6 \
-        libsm6:i386 && \
+    alsa-base \
+    alsa-utils \
+    cups-browsed \
+    cups-bsd \
+    cups-common \
+    cups-filters \
+    printer-driver-cups-pdf \
+    file \
+    bzip2 \
+    gzip \
+    xz-utils \
+    unar \
+    rar \
+    unrar \
+    zip \
+    unzip \
+    zstd \
+    gcc \
+    git \
+    jq \
+    python3 \
+    python3-cups \
+    python3-numpy \
+    ssl-cert \
+    nano \
+    vim \
+    htop \
+    fakeroot \
+    fonts-dejavu \
+    fonts-freefont-ttf \
+    fonts-hack \
+    fonts-liberation \
+    fonts-noto \
+    fonts-noto-cjk \
+    fonts-noto-cjk-extra \
+    fonts-noto-color-emoji \
+    fonts-noto-extra \
+    fonts-noto-ui-extra \
+    fonts-noto-hinted \
+    fonts-noto-mono \
+    fonts-noto-unhinted \
+    fonts-opensymbol \
+    fonts-symbola \
+    fonts-ubuntu \
+    lame \
+    less \
+    libavcodec-extra \
+    libpulse0 \
+    pulseaudio \
+    supervisor \
+    net-tools \
+    packagekit-tools \
+    pkg-config \
+    mesa-utils \
+    va-driver-all \
+    va-driver-all:i386 \
+    i965-va-driver-shaders \
+    i965-va-driver-shaders:i386 \
+    intel-media-va-driver-non-free \
+    intel-media-va-driver-non-free:i386 \
+    libva2 \
+    libva2:i386 \
+    vainfo \
+    vdpau-driver-all \
+    vdpau-driver-all:i386 \
+    vdpauinfo \
+    mesa-vulkan-drivers \
+    mesa-vulkan-drivers:i386 \
+    libvulkan-dev \
+    libvulkan-dev:i386 \
+    vulkan-tools \
+    ocl-icd-libopencl1 \
+    clinfo \
+    dbus-user-session \
+    dbus-x11 \
+    libdbus-c++-1-0v5 \
+    xkb-data \
+    xauth \
+    xbitmaps \
+    xdg-user-dirs \
+    xdg-utils \
+    xfonts-base \
+    xfonts-scalable \
+    xinit \
+    xsettingsd \
+    libxrandr-dev \
+    x11-xkb-utils \
+    x11-xserver-utils \
+    x11-utils \
+    x11-apps \
+    xserver-xorg-input-all \
+    xserver-xorg-input-wacom \
+    xserver-xorg-video-all \
+    xserver-xorg-video-intel \
+    xserver-xorg-video-qxl \
+    # Install OpenGL libraries
+    libxau6 \
+    libxau6:i386 \
+    libxdmcp6 \
+    libxdmcp6:i386 \
+    libxcb1 \
+    libxcb1:i386 \
+    libxext6 \
+    libxext6:i386 \
+    libx11-6 \
+    libx11-6:i386 \
+    libxv1 \
+    libxv1:i386 \
+    libxtst6 \
+    libxtst6:i386 \
+    libglvnd0 \
+    libglvnd0:i386 \
+    libgl1 \
+    libgl1:i386 \
+    libglx0 \
+    libglx0:i386 \
+    libegl1 \
+    libegl1:i386 \
+    libgles2 \
+    libgles2:i386 \
+    libglu1 \
+    libglu1:i386 \
+    libsm6 \
+    libsm6:i386 && \
     rm -rf /var/lib/apt/lists/* && \
     echo "/usr/local/nvidia/lib" >> /etc/ld.so.conf.d/nvidia.conf && \
     echo "/usr/local/nvidia/lib64" >> /etc/ld.so.conf.d/nvidia.conf && \
@@ -175,17 +175,17 @@ RUN dpkg --add-architecture i386 && \
     mkdir -pm755 /etc/vulkan/icd.d/ && echo "{\n\
     \"file_format_version\" : \"1.0.0\",\n\
     \"ICD\": {\n\
-        \"library_path\": \"libGLX_nvidia.so.0\",\n\
-        \"api_version\" : \"${VULKAN_API_VERSION}\"\n\
+    \"library_path\": \"libGLX_nvidia.so.0\",\n\
+    \"api_version\" : \"${VULKAN_API_VERSION}\"\n\
     }\n\
-}" > /etc/vulkan/icd.d/nvidia_icd.json && \
+    }" > /etc/vulkan/icd.d/nvidia_icd.json && \
     # Configure EGL manually
     mkdir -pm755 /usr/share/glvnd/egl_vendor.d/ && echo "{\n\
     \"file_format_version\" : \"1.0.0\",\n\
     \"ICD\": {\n\
-        \"library_path\": \"libEGL_nvidia.so.0\"\n\
+    \"library_path\": \"libEGL_nvidia.so.0\"\n\
     }\n\
-}" > /usr/share/glvnd/egl_vendor.d/10_nvidia.json
+    }" > /usr/share/glvnd/egl_vendor.d/10_nvidia.json
 # Expose NVIDIA libraries and paths
 ENV PATH /usr/local/nvidia/bin${PATH:+:${PATH}}
 ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+${LD_LIBRARY_PATH}:}/usr/local/nvidia/lib:/usr/local/nvidia/lib64
@@ -217,7 +217,7 @@ ARG NOVNC_VERSION=1.4.0
 
 # Install Xvfb
 RUN apt-get update && apt-get install --no-install-recommends -y \
-        xvfb && \
+    xvfb && \
     rm -rf /var/lib/apt/lists/*
 
 # Install VirtualGL and make libraries available for preload
@@ -258,136 +258,136 @@ ENV XMODIFIERS "@im=fcitx"
 # Enable AppImage execution in containers
 ENV APPIMAGE_EXTRACT_AND_RUN 1
 RUN mkdir -pm755 /etc/apt/preferences.d && echo "Package: firefox*\n\
-Pin: version 1:1snap*\n\
-Pin-Priority: -1" > /etc/apt/preferences.d/firefox-nosnap && \
+    Pin: version 1:1snap*\n\
+    Pin-Priority: -1" > /etc/apt/preferences.d/firefox-nosnap && \
     mkdir -pm755 /etc/apt/trusted.gpg.d && curl -fsSL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0AB215679C571D1C8325275B9BDB3D89CE49EC21" | gpg --dearmor -o /etc/apt/trusted.gpg.d/mozillateam-ubuntu-ppa.gpg && \
     mkdir -pm755 /etc/apt/sources.list.d && echo "deb https://ppa.launchpadcontent.net/mozillateam/ppa/ubuntu $(grep UBUNTU_CODENAME= /etc/os-release | cut -d= -f2 | tr -d '\"') main" > "/etc/apt/sources.list.d/mozillateam-ubuntu-ppa-$(grep UBUNTU_CODENAME= /etc/os-release | cut -d= -f2 | tr -d '\"').list" && \
     apt-get update && apt-get install --no-install-recommends -y \
-        kde-plasma-desktop \
-        adwaita-icon-theme-full \
-        appmenu-gtk3-module \
-        ark \
-        aspell \
-        aspell-en \
-        breeze \
-        breeze-cursor-theme \
-        breeze-gtk-theme \
-        breeze-icon-theme \
-        debconf-kde-helper \
-        desktop-file-utils \
-        dolphin \
-        dolphin-plugins \
-        dbus-x11 \
-        enchant-2 \
-        fcitx \
-        fcitx-frontend-gtk2 \
-        fcitx-frontend-gtk3 \
-        fcitx-frontend-qt5 \
-        fcitx-module-dbus \
-        fcitx-module-kimpanel \
-        fcitx-module-lua \
-        fcitx-module-x11 \
-        fcitx-tools \
-        fcitx-hangul \
-        fcitx-libpinyin \
-        fcitx-m17n \
-        fcitx-mozc \
-        fcitx-sayura \
-        fcitx-unikey \
-        filelight \
-        frameworkintegration \
-        gwenview \
-        haveged \
-        hunspell \
-        im-config \
-        kate \
-        kcalc \
-        kcharselect \
-        kdeadmin \
-        kde-config-fcitx \
-        kde-config-gtk-style \
-        kde-config-gtk-style-preview \
-        kdeconnect \
-        kdegraphics-thumbnailers \
-        kde-spectacle \
-        kdf \
-        kdialog \
-        kget \
-        kimageformat-plugins \
-        kinfocenter \
-        kio \
-        kio-extras \
-        kmag \
-        kmenuedit \
-        kmix \
-        kmousetool \
-        kmouth \
-        ksshaskpass \
-        ktimer \
-        kwayland-integration \
-        kwin-addons \
-        kwin-x11 \
-        libdbusmenu-glib4 \
-        libdbusmenu-gtk3-4 \
-        libgail-common \
-        libgdk-pixbuf2.0-bin \
-        libgtk2.0-bin \
-        libgtk-3-bin \
-        libkf5baloowidgets-bin \
-        libkf5dbusaddons-bin \
-        libkf5iconthemes-bin \
-        libkf5kdelibs4support5-bin \
-        libkf5khtml-bin \
-        libkf5parts-plugins \
-        libqt5multimedia5-plugins \
-        librsvg2-common \
-        media-player-info \
-        okular \
-        okular-extra-backends \
-        partitionmanager \
-        plasma-browser-integration \
-        plasma-calendar-addons \
-        plasma-dataengines-addons \
-        plasma-discover \
-        plasma-integration \
-        plasma-runners-addons \
-        plasma-widgets-addons \
-        policykit-desktop-privileges \
-        polkit-kde-agent-1 \
-        print-manager \
-        qapt-deb-installer \
-        qml-module-org-kde-runnermodel \
-        qml-module-org-kde-qqc2desktopstyle \
-        qml-module-qtgraphicaleffects \
-        qml-module-qtquick-xmllistmodel \
-        qt5-gtk-platformtheme \
-        qt5-image-formats-plugins \
-        qt5-style-plugins \
-        qtspeech5-flite-plugin \
-        qtvirtualkeyboard-plugin \
-        software-properties-qt \
-        sonnet-plugins \
-        sweeper \
-        systemsettings \
-        ubuntu-drivers-common \
-        vlc \
-        vlc-l10n \
-        vlc-plugin-access-extra \
-        vlc-plugin-notify \
-        vlc-plugin-samba \
-        vlc-plugin-skins2 \
-        vlc-plugin-video-splitter \
-        vlc-plugin-visualization \
-        xdg-desktop-portal-kde \
-        xdg-user-dirs \
-        firefox \
-        pavucontrol-qt \
-        transmission-qt && \
+    kde-plasma-desktop \
+    adwaita-icon-theme-full \
+    appmenu-gtk3-module \
+    ark \
+    aspell \
+    aspell-en \
+    breeze \
+    breeze-cursor-theme \
+    breeze-gtk-theme \
+    breeze-icon-theme \
+    debconf-kde-helper \
+    desktop-file-utils \
+    dolphin \
+    dolphin-plugins \
+    dbus-x11 \
+    enchant-2 \
+    fcitx \
+    fcitx-frontend-gtk2 \
+    fcitx-frontend-gtk3 \
+    fcitx-frontend-qt5 \
+    fcitx-module-dbus \
+    fcitx-module-kimpanel \
+    fcitx-module-lua \
+    fcitx-module-x11 \
+    fcitx-tools \
+    fcitx-hangul \
+    fcitx-libpinyin \
+    fcitx-m17n \
+    fcitx-mozc \
+    fcitx-sayura \
+    fcitx-unikey \
+    filelight \
+    frameworkintegration \
+    gwenview \
+    haveged \
+    hunspell \
+    im-config \
+    kate \
+    kcalc \
+    kcharselect \
+    kdeadmin \
+    kde-config-fcitx \
+    kde-config-gtk-style \
+    kde-config-gtk-style-preview \
+    kdeconnect \
+    kdegraphics-thumbnailers \
+    kde-spectacle \
+    kdf \
+    kdialog \
+    kget \
+    kimageformat-plugins \
+    kinfocenter \
+    kio \
+    kio-extras \
+    kmag \
+    kmenuedit \
+    kmix \
+    kmousetool \
+    kmouth \
+    ksshaskpass \
+    ktimer \
+    kwayland-integration \
+    kwin-addons \
+    kwin-x11 \
+    libdbusmenu-glib4 \
+    libdbusmenu-gtk3-4 \
+    libgail-common \
+    libgdk-pixbuf2.0-bin \
+    libgtk2.0-bin \
+    libgtk-3-bin \
+    libkf5baloowidgets-bin \
+    libkf5dbusaddons-bin \
+    libkf5iconthemes-bin \
+    libkf5kdelibs4support5-bin \
+    libkf5khtml-bin \
+    libkf5parts-plugins \
+    libqt5multimedia5-plugins \
+    librsvg2-common \
+    media-player-info \
+    okular \
+    okular-extra-backends \
+    partitionmanager \
+    plasma-browser-integration \
+    plasma-calendar-addons \
+    plasma-dataengines-addons \
+    plasma-discover \
+    plasma-integration \
+    plasma-runners-addons \
+    plasma-widgets-addons \
+    policykit-desktop-privileges \
+    polkit-kde-agent-1 \
+    print-manager \
+    qapt-deb-installer \
+    qml-module-org-kde-runnermodel \
+    qml-module-org-kde-qqc2desktopstyle \
+    qml-module-qtgraphicaleffects \
+    qml-module-qtquick-xmllistmodel \
+    qt5-gtk-platformtheme \
+    qt5-image-formats-plugins \
+    qt5-style-plugins \
+    qtspeech5-flite-plugin \
+    qtvirtualkeyboard-plugin \
+    software-properties-qt \
+    sonnet-plugins \
+    sweeper \
+    systemsettings \
+    ubuntu-drivers-common \
+    vlc \
+    vlc-l10n \
+    vlc-plugin-access-extra \
+    vlc-plugin-notify \
+    vlc-plugin-samba \
+    vlc-plugin-skins2 \
+    vlc-plugin-video-splitter \
+    vlc-plugin-visualization \
+    xdg-desktop-portal-kde \
+    xdg-user-dirs \
+    firefox \
+    pavucontrol-qt \
+    transmission-qt && \
     apt-get install --install-recommends -y \
-        libreoffice \
-        libreoffice-kf5 \
-        libreoffice-plasma \
-        libreoffice-style-breeze && \
+    libreoffice \
+    libreoffice-kf5 \
+    libreoffice-plasma \
+    libreoffice-style-breeze && \
     rm -rf /var/lib/apt/lists/* && \
     # Fix KDE startup permissions issues in containers
     MULTI_ARCH=$(dpkg --print-architecture | sed -e 's/arm64/aarch64-linux-gnu/' -e 's/armhf/arm-linux-gnueabihf/' -e 's/riscv64/riscv64-linux-gnu/' -e 's/ppc64el/powerpc64le-linux-gnu/' -e 's/s390x/s390x-linux-gnu/' -e 's/i.*86/i386-linux-gnu/' -e 's/amd64/x86_64-linux-gnu/' -e 's/unknown/x86_64-linux-gnu/') && \
@@ -397,24 +397,24 @@ Pin-Priority: -1" > /etc/apt/preferences.d/firefox-nosnap && \
     rm -f /tmp/start_kdeinit && \
     # KDE disable screen lock, double-click to open instead of single-click
     echo "[Daemon]\n\
-Autolock=false\n\
-LockOnResume=false" > /etc/xdg/kscreenlockerrc && \
+    Autolock=false\n\
+    LockOnResume=false" > /etc/xdg/kscreenlockerrc && \
     echo "[KDE]\n\
-SingleClick=false\n\
-\n\
-[KDE Action Restrictions]\n\
-action/lock_screen=false\n\
-logout=false" > /etc/xdg/kdeglobals
+    SingleClick=false\n\
+    \n\
+    [KDE Action Restrictions]\n\
+    action/lock_screen=false\n\
+    logout=false" > /etc/xdg/kdeglobals
 
 # Wine, Winetricks, Lutris, and PlayOnLinux, this process must be consistent with https://wiki.winehq.org/Ubuntu
 ARG WINE_BRANCH=staging
 RUN mkdir -pm755 /etc/apt/keyrings && curl -fsSL -o /etc/apt/keyrings/winehq-archive.key "https://dl.winehq.org/wine-builds/winehq.key" && \
     curl -fsSL -o "/etc/apt/sources.list.d/winehq-$(grep UBUNTU_CODENAME= /etc/os-release | cut -d= -f2 | tr -d '\"').sources" "https://dl.winehq.org/wine-builds/ubuntu/dists/$(grep UBUNTU_CODENAME= /etc/os-release | cut -d= -f2 | tr -d '\"')/winehq-$(grep UBUNTU_CODENAME= /etc/os-release | cut -d= -f2 | tr -d '\"').sources" && \
     apt-get update && apt-get install --install-recommends -y \
-        winehq-${WINE_BRANCH} && \
+    winehq-${WINE_BRANCH} && \
     apt-get install --no-install-recommends -y \
-        q4wine \
-        playonlinux && \
+    q4wine \
+    playonlinux && \
     LUTRIS_VERSION="$(curl -fsSL "https://api.github.com/repos/lutris/lutris/releases/latest" | jq -r '.tag_name' | sed 's/[^0-9\.\-]*//g')" && \
     curl -fsSL -O "https://github.com/lutris/lutris/releases/download/v${LUTRIS_VERSION}/lutris_${LUTRIS_VERSION}_all.deb" && \
     apt-get install --no-install-recommends -y ./lutris_${LUTRIS_VERSION}_all.deb && rm -f "./lutris_${LUTRIS_VERSION}_all.deb" && \
@@ -425,58 +425,58 @@ RUN mkdir -pm755 /etc/apt/keyrings && curl -fsSL -o /etc/apt/keyrings/winehq-arc
 
 # Install latest Selkies-GStreamer (https://github.com/selkies-project/selkies-gstreamer) build, Python application, and web application, should be consistent with selkies-gstreamer documentation
 RUN apt-get update && apt-get install --no-install-recommends -y \
-        # GStreamer dependencies
-        python3-pip \
-        python3-dev \
-        python3-gi \
-        python3-setuptools \
-        python3-wheel \
-        udev \
-        wmctrl \
-        jq \
-        gdebi-core \
-        libgdk-pixbuf2.0-0 \
-        libgtk2.0-bin \
-        libgl-dev \
-        libgles-dev \
-        libglvnd-dev \
-        libgudev-1.0-0 \
-        xclip \
-        x11-utils \
-        xdotool \
-        x11-xserver-utils \
-        xserver-xorg-core \
-        wayland-protocols \
-        libwayland-dev \
-        libwayland-egl1 \
-        libx11-xcb1 \
-        libxkbcommon0 \
-        libxdamage1 \
-        libsoup2.4-1 \
-        libsoup-gnome2.4-1 \
-        libsrtp2-1 \
-        lame \
-        libopus0 \
-        libwebrtc-audio-processing1 \
-        pulseaudio \
-        libpulse0 \
-        libcairo-gobject2 \
-        libpangocairo-1.0-0 \
-        libgirepository-1.0-1 \
-        libopenjp2-7 \
-        libjpeg-dev \
-        libwebp-dev \
-        libvpx-dev \
-        zlib1g-dev \
-        x264 \
-        # AMD/Intel graphics driver dependencies
-        va-driver-all \
-        i965-va-driver-shaders \
-        intel-media-va-driver-non-free \
-        libva2 \
-        vainfo \
-        intel-gpu-tools \
-        radeontop && \
+    # GStreamer dependencies
+    python3-pip \
+    python3-dev \
+    python3-gi \
+    python3-setuptools \
+    python3-wheel \
+    udev \
+    wmctrl \
+    jq \
+    gdebi-core \
+    libgdk-pixbuf2.0-0 \
+    libgtk2.0-bin \
+    libgl-dev \
+    libgles-dev \
+    libglvnd-dev \
+    libgudev-1.0-0 \
+    xclip \
+    x11-utils \
+    xdotool \
+    x11-xserver-utils \
+    xserver-xorg-core \
+    wayland-protocols \
+    libwayland-dev \
+    libwayland-egl1 \
+    libx11-xcb1 \
+    libxkbcommon0 \
+    libxdamage1 \
+    libsoup2.4-1 \
+    libsoup-gnome2.4-1 \
+    libsrtp2-1 \
+    lame \
+    libopus0 \
+    libwebrtc-audio-processing1 \
+    pulseaudio \
+    libpulse0 \
+    libcairo-gobject2 \
+    libpangocairo-1.0-0 \
+    libgirepository-1.0-1 \
+    libopenjp2-7 \
+    libjpeg-dev \
+    libwebp-dev \
+    libvpx-dev \
+    zlib1g-dev \
+    x264 \
+    # AMD/Intel graphics driver dependencies
+    va-driver-all \
+    i965-va-driver-shaders \
+    intel-media-va-driver-non-free \
+    libva2 \
+    vainfo \
+    intel-gpu-tools \
+    radeontop && \
     if [ "$(grep VERSION_ID= /etc/os-release | cut -d= -f2 | tr -d '\"')" \> "20.04" ]; then apt-get install --no-install-recommends -y xcvt; else apt-get install --no-install-recommends -y mesa-utils-extra; fi && \
     rm -rf /var/lib/apt/lists/* && \
     # Automatically fetch the latest selkies-gstreamer version and install the components
@@ -493,28 +493,28 @@ ENV SDL_JOYSTICK_DEVICE /dev/input/js0
 
 # Install the noVNC web interface and the latest x11vnc for fallback
 RUN apt-get update && apt-get install --no-install-recommends -y \
-        autoconf \
-        automake \
-        autotools-dev \
-        chrpath \
-        debhelper \
-        git \
-        jq \
-        python3 \
-        python3-numpy \
-        libc6-dev \
-        libcairo2-dev \
-        libjpeg-turbo8-dev \
-        libssl-dev \
-        libv4l-dev \
-        libvncserver-dev \
-        libtool-bin \
-        libxdamage-dev \
-        libxinerama-dev \
-        libxrandr-dev \
-        libxss-dev \
-        libxtst-dev \
-        libavahi-client-dev && \
+    autoconf \
+    automake \
+    autotools-dev \
+    chrpath \
+    debhelper \
+    git \
+    jq \
+    python3 \
+    python3-numpy \
+    libc6-dev \
+    libcairo2-dev \
+    libjpeg-turbo8-dev \
+    libssl-dev \
+    libv4l-dev \
+    libvncserver-dev \
+    libtool-bin \
+    libxdamage-dev \
+    libxinerama-dev \
+    libxrandr-dev \
+    libxss-dev \
+    libxtst-dev \
+    libavahi-client-dev && \
     rm -rf /var/lib/apt/lists/* && \
     # Build the latest x11vnc source to avoid various errors
     git clone "https://github.com/LibVNC/x11vnc.git" /tmp/x11vnc && \
@@ -529,8 +529,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # Create user with password ${PASSWD} and assign adequate groups
 RUN apt-get update && apt-get install --no-install-recommends -y \
-        sudo \
-        tzdata && \
+    sudo \
+    tzdata && \
     rm -rf /var/lib/apt/lists/* && \
     groupadd -g 1000 user && \
     useradd -ms /bin/bash user -u 1000 -g 1000 && \
@@ -556,3 +556,37 @@ ENV USER user
 WORKDIR /home/user
 
 ENTRYPOINT ["/usr/bin/supervisord"]
+
+# --------------------------------------------------------------
+# install common libraries (instead of Dockerfile.base)
+# --------------------------------------------------------------
+USER root
+RUN apt update && apt install -y \
+    sudo \
+    htop \
+    git \
+    tzdata \
+    iproute2 \
+    iputils-ping \
+    net-tools \
+    vim \
+    byobu \
+    python3-pip \
+    wget \
+    openssh-server \
+    terminator \
+    && rm -rf /var/lib/apt/lists/*
+
+# ssh server settings
+ARG SSH_PORT=222
+ENV LAUNCH_SSH_SERVER=false
+RUN mkdir /var/run/sshd
+RUN sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config &&\
+    sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config &&\
+    sed -i "s/#Port 22/Port ${SSH_PORT}/" /etc/ssh/sshd_config &&\
+    # SSH login fix. Otherwise user is kicked off after login
+    sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
+COPY entyrypoint_sshd.sh /etc/entyrypoint_sshd.sh
+RUN chmod +x /etc/entyrypoint_sshd.sh
+EXPOSE ${SSH_PORT}
+# --------------------------------------------------------------
