@@ -28,12 +28,12 @@ RUN apt-get clean && apt-get update && apt-get dist-upgrade -y && apt-get instal
     # Only use sudo-root for root-owned directory (/dev, /proc, /sys) or user/group permission operations, not for apt-get installation or file/directory operations
     mv -f /usr/bin/sudo /usr/bin/sudo-root && \
     ln -snf /usr/bin/fakeroot /usr/bin/sudo && \
-    groupadd -g 1000 ubuntu || echo 'Failed to add ubuntu group' && \
-    useradd -ms /bin/bash ubuntu -u 1000 -g 1000 || echo 'Failed to add ubuntu user' && \
-    usermod -a -G adm,audio,cdrom,dialout,dip,fax,floppy,games,input,lp,plugdev,render,ssl-cert,sudo,tape,tty,video,voice ubuntu && \
-    echo "ubuntu ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers && \
-    echo "ubuntu:${PASSWD}" | chpasswd && \
-    chown -R -f -h --no-preserve-root ubuntu:ubuntu / || echo 'Failed to set filesystem ownership in some paths to ubuntu user' && \
+    groupadd -g 1000 user || echo 'Failed to add user group' && \
+    useradd -ms /bin/bash user -u 1000 -g 1000 || echo 'Failed to add user user' && \
+    usermod -a -G adm,audio,cdrom,dialout,dip,fax,floppy,games,input,lp,plugdev,render,ssl-cert,sudo,tape,tty,video,voice user && \
+    echo "user ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers && \
+    echo "user:${PASSWD}" | chpasswd && \
+    chown -R -f -h --no-preserve-root user:user / || echo 'Failed to set filesystem ownership in some paths to user user' && \
     # Preserve setuid/setgid removed by chown
     chmod -f 4755 /usr/lib/dbus-1.0/dbus-daemon-launch-helper /usr/bin/chfn /usr/bin/chsh /usr/bin/mount /usr/bin/gpasswd /usr/bin/passwd /usr/bin/newgrp /usr/bin/umount /usr/bin/su /usr/bin/sudo-root /usr/bin/fusermount || echo 'Failed to set chmod setuid for some paths' && \
     chmod -f 2755 /var/local /var/mail /usr/sbin/unix_chkpwd /usr/sbin/pam_extrausers_chkpwd /usr/bin/expiry /usr/bin/chage || echo 'Failed to set chmod setgid for some paths'
