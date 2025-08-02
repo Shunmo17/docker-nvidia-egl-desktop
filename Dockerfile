@@ -43,7 +43,7 @@ ENV LANG="en_US.UTF-8"
 ENV LANGUAGE="en_US:en"
 ENV LC_ALL="en_US.UTF-8"
 
-USER 1000
+# USER 1000
 # Use BUILDAH_FORMAT=docker in buildah
 SHELL ["/usr/bin/fakeroot", "--", "/bin/sh", "-c"]
 
